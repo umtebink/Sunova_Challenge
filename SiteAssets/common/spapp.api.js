@@ -1,9 +1,12 @@
 /* ********************
-A controller to handle display ultilities for the app.
+A module to handle api calls for the app.
 ******************** */
 spapp.api = function() {
 	const _moduleName = "api";
     
+    /* ********************
+    Makes a GET request to the specified url and returns the response.
+    ******************** */
     function getResponse(url) {
         var xhr = new XMLHttpRequest();
         var response;

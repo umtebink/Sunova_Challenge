@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
 	<head>
 		<meta charset="UTF-8">
-		<title>Sunova Challenge</title>
+		<title>Sunova Programming Challenge</title>
 	</head>
 
 	<body>
@@ -14,13 +13,12 @@
 		<link rel="stylesheet" type="text/css" href="SiteAssets/css/bootstrap-theme.min.css">
 		<link rel="stylesheet" type="text/css" href="SiteAssets/css/dataTables.bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="SiteAssets/css/jquery.dataTables.min.css">
+		<link rel="stylesheet" type="text/css" href="SiteAssets/css/spapp.css">
 		
 		<!-- include all JavaScript files here -->
         <!-- vendor -->
 		<script type="text/javascript" src="SiteAssets/vendor/jquery-3.1.0.min.js"></script>
-		<script type="text/javascript" src="SiteAssets/vendor/angular.min.js"></script>
 		<script type="text/javascript" src="SiteAssets/vendor/bootstrap.min.js"></script>
-		<script type="text/javascript" src="SiteAssets/vendor/dataTables.bootstrap.min.js"></script>
 		<script type="text/javascript" src="SiteAssets/vendor/jquery.dataTables.min.js"></script>
 		
         <!-- spapp.js -->
@@ -28,30 +26,40 @@
          
 		<!-- common -->
         <script type="text/javascript" src="SiteAssets/common/spapp.api.js"></script>
+        <script type="text/javascript" src="SiteAssets/common/spapp.dataTables.js"></script>
         <script type="text/javascript" src="SiteAssets/common/spapp.state.js"></script>
-        <script type="text/javascript" src="SiteAssets/common/spapp.view.js"></script>
 		
 		<!-- controllers -->
 		<script type="text/javascript" src="SiteAssets/controllers/spapp.vehicleController.js"></script>
+        
+        <!-- models -->
+        <script type="text/javascript" src="SiteAssets/models/spapp.vehicleModel.js"></script>
 		
-        <!-- display -->
-        <div ng-app="vehicleTable" ng-controller="vehicleController"> 
-            
-            <table>
-                <thead>
-                    <th>Name</th>
-                    <th>Model</th>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="x in data">
-                        <td>{{ x.name }}</td>
-                        <td>{{ x.model }}</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-        </div>
-		
+        <!-- application display bellow -->
+        
+        <!-- header nav bar code pulled from Bootstrap's website: http://getbootstrap.com/components/#navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand">Sunova Programming Challenge - Timothy Tebinka</a>
+                </div>
+                
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        
+        <!-- an empty table to be populated with DataTables via a JS datasource: https://datatables.net/examples/data_sources/js_array.html -->
+        <table id="vehicleTable" class="display" width="100%"></table>
+        
 		<!-- on ready, run spapp.initialize() -->
 		<script type="text/javascript">
 			$(document).ready(function() {

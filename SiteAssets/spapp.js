@@ -1,10 +1,14 @@
+/* ********************
+The main module designated for universal functions of the app.
+******************** */
 var spapp = function() {
     const _moduleName = "spapp";
-    const url = "https://mobiledev.sunovacu.ca/api/Values/GetCars";
     
+    /* ********************
+    A function to initialize the app.
+    ******************** */
 	function initialize() {
-        spapp.state.vehicleData = spapp.api.getResponse(url);
-        console.log(spapp.state.vehicleData);
+        spapp.state.vehicleData = spapp.vehicleModel.getVehicles();
         spapp.vehicleController.renderVehicleData();
     }
 	
