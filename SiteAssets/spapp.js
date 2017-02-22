@@ -3,8 +3,9 @@ var spapp = function() {
     const url = "https://mobiledev.sunovacu.ca/api/Values/GetCars";
     
 	function initialize() {
-        var data = spapp.api.getResponse(url);
-        console.log(data);
+        spapp.state.vehicleData = spapp.api.getResponse(url);
+        console.log(spapp.state.vehicleData);
+        spapp.vehicleController.renderVehicleData();
     }
 	
 	return {

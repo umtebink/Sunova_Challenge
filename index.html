@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html>
-	
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
 	<head>
 		<meta charset="UTF-8">
 		<title>Sunova Challenge</title>
 	</head>
 
 	<body>
+        
 		<!-- include all css files here -->
 		<link rel="stylesheet" type="text/css" href="SiteAssets/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="SiteAssets/css/bootstrap-theme.min.css">
@@ -16,8 +18,8 @@
 		<!-- include all JavaScript files here -->
         <!-- vendor -->
 		<script type="text/javascript" src="SiteAssets/vendor/jquery-3.1.0.min.js"></script>
-		<script type="text/javascript" src="SiteAssets/vendor/bootstrap.min.js"></script>
 		<script type="text/javascript" src="SiteAssets/vendor/angular.min.js"></script>
+		<script type="text/javascript" src="SiteAssets/vendor/bootstrap.min.js"></script>
 		<script type="text/javascript" src="SiteAssets/vendor/dataTables.bootstrap.min.js"></script>
 		<script type="text/javascript" src="SiteAssets/vendor/jquery.dataTables.min.js"></script>
 		
@@ -26,10 +28,29 @@
          
 		<!-- common -->
         <script type="text/javascript" src="SiteAssets/common/spapp.api.js"></script>
+        <script type="text/javascript" src="SiteAssets/common/spapp.state.js"></script>
+        <script type="text/javascript" src="SiteAssets/common/spapp.view.js"></script>
 		
 		<!-- controllers -->
+		<script type="text/javascript" src="SiteAssets/controllers/spapp.vehicleController.js"></script>
 		
-		<!-- models -->
+        <!-- display -->
+        <div ng-app="vehicleTable" ng-controller="vehicleController"> 
+            
+            <table>
+                <thead>
+                    <th>Name</th>
+                    <th>Model</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in data">
+                        <td>{{ x.name }}</td>
+                        <td>{{ x.model }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
 		
 		<!-- on ready, run spapp.initialize() -->
 		<script type="text/javascript">
@@ -37,6 +58,7 @@
 				spapp.initialize();
 			});
 		</script>
+        
 	</body>
 	
 </html>

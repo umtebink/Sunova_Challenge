@@ -1,0 +1,3 @@
+spapp.state = {
+    vehicleData: {},
+};
